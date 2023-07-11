@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magelearn_item_post_listing_data_source" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Post\Grid\Collection</item>
+                <item name="magelearn_item_tag_listing_data_source" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Tag\Grid\Collection</item>
+                <item name="magelearn_item_category_listing_data_source" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Category\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magelearn\ProductsGrid\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magelearn_item_post</argument>
+            <argument name="resourceModel" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magelearn\ProductsGrid\Model\ResourceModel\Tag\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magelearn_item_tag</argument>
+            <argument name="resourceModel" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Tag</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magelearn\ProductsGrid\Model\ResourceModel\Category\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magelearn_item_category</argument>
+            <argument name="resourceModel" xsi:type="string">Magelearn\ProductsGrid\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magelearn\ProductsGrid\Api\Data\PostInterface" type="Magelearn\ProductsGrid\Model\Post" />
+    <preference for="Magelearn\ProductsGrid\Api\Data\TagInterface" type="Magelearn\ProductsGrid\Model\Tag" />
+    <preference for="Magelearn\ProductsGrid\Api\Data\CategoryInterface" type="Magelearn\ProductsGrid\Model\Category" />
+    <preference for="Magelearn\ProductsGrid\Api\ItemRepositoryInterface" type="Magelearn\ProductsGrid\Model\Api\ItemRepository" />
+
+    <preference for="Magelearn\ProductsGrid\Api\Data\SearchResult\PostSearchResultInterface" type="Magelearn\ProductsGrid\Model\ResourceModel\Post\Collection" />
+    <preference for="Magelearn\ProductsGrid\Api\Data\SearchResult\CategorySearchResultInterface" type="Magelearn\ProductsGrid\Model\ResourceModel\Category\Collection" />
+    <preference for="Magelearn\ProductsGrid\Api\Data\SearchResult\TagSearchResultInterface" type="Magelearn\ProductsGrid\Model\ResourceModel\Tag\Collection" />
+</config>

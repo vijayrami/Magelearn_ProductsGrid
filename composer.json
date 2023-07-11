@@ -1,0 +1,22 @@
+{
+    "name": "magelearn/module-productsgrid",
+    "description": "Add Products Grid and Custom Collection in UI Component form in custom module Magento2.",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "vijaymrami@gmail.com",
+            "name": "vijay rami"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magelearn\\ProductsGrid\\": ""
+        }
+    }
+}

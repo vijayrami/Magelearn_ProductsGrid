@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magelearn_ProductsGrid::item" title="Item Grid" module="Magelearn_ProductsGrid" sortOrder="110" resource="Magelearn_ProductsGrid::item"/>
+        <add id="Magelearn_ProductsGrid::post" title="Manage Posts" module="Magelearn_ProductsGrid" sortOrder="10" action="magelearn_productsgrid/post" resource="Magelearn_ProductsGrid::post" parent="Magelearn_ProductsGrid::item"/>
+        <add id="Magelearn_ProductsGrid::tag" title="Manage Tags" module="Magelearn_ProductsGrid" sortOrder="20" action="magelearn_productsgrid/tag" resource="Magelearn_ProductsGrid::tag" parent="Magelearn_ProductsGrid::item"/>
+        <add id="Magelearn_ProductsGrid::category" title="Categories" module="Magelearn_ProductsGrid" sortOrder="30" action="magelearn_productsgrid/category" resource="Magelearn_ProductsGrid::category" parent="Magelearn_ProductsGrid::item"/>
+    </menu>
+</config>

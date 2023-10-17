@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+    	<css src="Magento_Swatches::css/swatches.css"/>
+    	<css src="jquery/colorpicker/css/colorpicker.css"/>
+        <script src="Magelearn_ProductsGrid::js/jscolor.min.js"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magelearn\ProductsGrid\Block\Adminhtml\Post\Edit" name="magelearn_productsgrid_post_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magelearn\ProductsGrid\Block\Adminhtml\Post\Edit\Tabs" name="magelearn_productsgrid_post_tabs">
+            	<container name="main" label="Main">
+            		<block class="Magelearn\ProductsGrid\Block\Adminhtml\Post\Edit\Tab\Post" name="magelearn_productsgrid_post_edit_tab_post"/>
+            		<block class="Magelearn\ProductsGrid\Block\Adminhtml\Post\Edit\Options\Swatch" as="magelearn_productsgrid_swatch" />
+            	</container>
+                <block class="Magelearn\ProductsGrid\Block\Adminhtml\Post\Edit\Tab\Product" name="magelearn_productsgrid_post_edit_tab_product"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

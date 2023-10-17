@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="magelearn_item_post" resource="default" engine="innodb" comment="Item Table">
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Item ID"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Item Name"/>
+    <column xsi:type="text" name="short_description" nullable="true" comment="Item Short Description"/>
+    <column xsi:type="text" name="item_content" nullable="true" comment="Item Content"/>
+    <column xsi:type="text" name="store_ids" nullable="false" comment="Store Id"/>
+    <column xsi:type="varchar" name="image" nullable="true" length="255" comment="Item Image"/>
+    <column xsi:type="int" name="enabled" padding="11" unsigned="false" nullable="true" identity="false" comment="Item Enabled"/>
+    <column xsi:type="varchar" name="item_title_color" nullable="true" length="255" comment="Item Title Color"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="true"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="item_id"/>
+    </constraint>
+  </table>
+  <table name="magelearn_item_tag" resource="default" engine="innodb" comment="Tag Table">
+    <column xsi:type="int" name="tag_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Tag ID"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Tag Name"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Tag Description"/>
+    <column xsi:type="int" name="enabled" padding="11" unsigned="false" nullable="true" identity="false" comment="Tag Enabled"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="true"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="tag_id"/>
+    </constraint>
+  </table>
+  <table name="magelearn_item_category" resource="default" engine="innodb" comment="Category Table">
+    <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Category ID"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Category Name"/>
+    <column xsi:type="int" name="enabled" padding="11" unsigned="false" nullable="true" identity="false" comment="Category Enabled"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="true"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="category_id"/>
+    </constraint>
+  </table>
+  <table name="magelearn_item_post_tag" resource="default" engine="innodb" comment="Item To Tag Link Table">
+    <column xsi:type="int" name="tag_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Tag ID"/>
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="false" comment="ITEM ID"/>
+    <column xsi:type="int" name="position" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Position"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="tag_id"/>
+      <column name="item_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_TAG_ITEM_ID_MAGELEARN_ITEM_POST_ITEM_ID"
+    	table="magelearn_item_post_tag"
+    	column="item_id"
+    	referenceTable="magelearn_item_post"
+    	referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_TAG_TAG_ID_MAGELEARN_ITEM_TAG_TAG_ID"
+    	table="magelearn_item_post_tag"
+    	column="tag_id"
+    	referenceTable="magelearn_item_tag"
+    	referenceColumn="tag_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="MAGELEARN_ITEM_POST_TAG_ITEM_ID_TAG_ID">
+      <column name="item_id"/>
+      <column name="tag_id"/>
+    </constraint>
+    <index referenceId="MAGELEARN_ITEM_POST_TAG_ITEM_ID" indexType="btree">
+      <column name="item_id"/>
+    </index>
+    <index referenceId="MAGELEARN_ITEM_POST_TAG_TAG_ID" indexType="btree">
+      <column name="tag_id"/>
+    </index>
+  </table>
+  <table name="magelearn_item_post_category" resource="default" engine="innodb" comment="Category To Item Link Table">
+    <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Category ID"/>
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Item ID"/>
+    <column xsi:type="int" name="position" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Position"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="category_id"/>
+      <column name="item_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_CTGR_CTGR_ID_MAGELEARN_ITEM_CTGR_CTGR_ID"
+    	table="magelearn_item_post_category" 
+    	column="category_id"
+    	referenceTable="magelearn_item_category"
+    	referenceColumn="category_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_CATEGORY_ITEM_ID_MAGELEARN_ITEM_POST_ITEM_ID"
+    	table="magelearn_item_post_category"
+    	column="item_id"
+    	referenceTable="magelearn_item_post"
+    	referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="MAGELEARN_ITEM_POST_CATEGORY_CATEGORY_ID_ITEM_ID">
+      <column name="category_id"/>
+      <column name="item_id"/>
+    </constraint>
+    <index referenceId="MAGELEARN_ITEM_POST_CATEGORY_CATEGORY_ID" indexType="btree">
+      <column name="category_id"/>
+    </index>
+    <index referenceId="MAGELEARN_ITEM_POST_CATEGORY_ITEM_ID" indexType="btree">
+      <column name="item_id"/>
+    </index>
+  </table>
+  <table name="magelearn_item_post_product" resource="default" engine="innodb" comment="Item To Product Link Table">
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Item ID"/>
+    <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Entity ID"/>
+    <column xsi:type="int" name="position" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Position"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="item_id"/>
+      <column name="entity_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_PRODUCT_ITEM_ID_MAGELEARN_ITEM_POST_ITEM_ID"
+    	table="magelearn_item_post_product"
+    	column="item_id"
+    	referenceTable="magelearn_item_post"
+    	referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_PRD_ENTT_ID_CAT_PRD_ENTT_ENTT_ID"
+    	table="magelearn_item_post_product"
+    	column="entity_id"
+    	referenceTable="catalog_product_entity"
+    	referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="MAGELEARN_ITEM_POST_PRODUCT_ITEM_ID_ENTITY_ID">
+      <column name="item_id"/>
+      <column name="entity_id"/>
+    </constraint>
+    <index referenceId="MAGELEARN_ITEM_POST_PRODUCT_ITEM_ID" indexType="btree">
+      <column name="item_id"/>
+    </index>
+    <index referenceId="MAGELEARN_ITEM_POST_PRODUCT_ENTITY_ID" indexType="btree">
+      <column name="entity_id"/>
+    </index>
+  </table>
+  <table name="magelearn_item_post_swatch" resource="default" engine="innodb" comment="Post Item To Swatch Link Table">
+  	<column xsi:type="int" name="swatch_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Swatch ID"/>
+    <column xsi:type="int" name="position" padding="10" unsigned="true" nullable="false" identity="false" comment="Position"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Swatch Description"/>
+    <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Item ID"/>
+    <column xsi:type="varchar" name="image" nullable="true" length="255" comment="Item Swatch Image"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="swatch_id"/>
+      <column name="item_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="MAGELEARN_ITEM_POST_SWATCH_ITEM_ID_MAGELEARN_ITEM_POST_ITEM_ID"
+    	table="magelearn_item_post_swatch"
+    	column="item_id"
+    	referenceTable="magelearn_item_post"
+    	referenceColumn="item_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="MAGELEARN_ITEM_POST_SWATCH_SWATCH_ID_ITEM_ID">
+      <column name="item_id"/>
+      <column name="swatch_id"/>
+    </constraint>
+    <index referenceId="MAGELEARN_ITEM_POST_SWATCH_ITEM_ID" indexType="btree">
+      <column name="item_id"/>
+    </index>
+    <index referenceId="MAGELEARN_ITEM_POST_SWATCH_SWATCH_ID" indexType="btree">
+      <column name="swatch_id"/>
+    </index>
+  </table>
+</schema>

@@ -13,6 +13,4 @@
 
 ## Screenshots
 
-[![Products-Grid-Magento-Admin.gif](https://github.com/vijayrami/Magelearn_ProductsGrid/blob/main/Posts%20_%20Magento%20Admin.gif)]
-
-<iframe src="https://drive.google.com/file/d/1ikTviHlr0dbmmVaxQdv4Jb_mVynRt6LO/preview" frameborder="0" height="100%" width="100%"></iframe>
+![Products-Grid-Magento-Admin.gif](https://github.com/vijayrami/Magelearn_ProductsGrid/blob/main/Posts%20_%20Magento%20Admin.gif)

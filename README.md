@@ -1,2 +1,7 @@
 # Magelearn_ProductsGrid
-Add Products Grid and Custom Collection in UI Component form in custom module Magento2
+
+1. Display the products grid in the tab section for edit form data.
+
+2. Create a tag and category on the fly from the edit form.
+
+3. Display the Custom Collection Grid on the form widget.

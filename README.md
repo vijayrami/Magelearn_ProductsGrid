@@ -10,3 +10,5 @@
 -- Download the Zip and Create a folder inside app/code/Magelearn/ProductsGrid in your Magento Root Directory.
 
 -- Extract the Zip and Run Magento Commands.
+
+## Screenshots

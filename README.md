@@ -13,20 +13,20 @@
 
 ## Screenshots
 
-[![ss1.png](https://i.postimg.cc/bJ3wy1yj/ss1.png)](https://postimg.cc/7GJkXGJB)
+![First image Alt text](/Images/first.png "productsgrid title")
 
-[![ss2.png](https://i.postimg.cc/vTK89Mxq/ss2.png)](https://postimg.cc/WqMPLBng)
+![Second image Alt text](/Images/second.png "productsgrid category")
 
-[![ss3.png](https://i.postimg.cc/h4ZtN8ZL/ss3.png)](https://postimg.cc/MXRwQBSH)
+![Third image Alt text](/Images/third.png "productsgrid category 1")
 
-[![ss4.png](https://i.postimg.cc/26cCRmGk/ss4.png)](https://postimg.cc/vgVJfJCk)
+![Fourth image Alt text](/Images/fourth.png "productsgrid category post")
 
-[![ss5.png](https://i.postimg.cc/Kj1xmVpn/ss5.png)](https://postimg.cc/vxwpzPsB)
+![Fifth image Alt text](/Images/fifth.png "productsgrid category post 1")
 
-[![ss7.png](https://i.postimg.cc/Prq25H4G/ss7.png)](https://postimg.cc/dDz85zpn)
+![Sixth image Alt text](/Images/sixth.png "productsgrid category tag")
 
-[![ss8.png](https://i.postimg.cc/sgkcmhRy/ss8.png)](https://postimg.cc/gxK8krJB)
+![Sventh image Alt text](/Images/seventh.png "productsgrid category tag 1")
 
-[![ss9.png](https://i.postimg.cc/154rZHms/ss9.png)](https://postimg.cc/CzTqGbnQ)
+![eight image Alt text](/Images/eight.png "productsgrid category post")
 
-![Products-Grid-Magento-Admin.gif](https://github.com/vijayrami/Magelearn_ProductsGrid/blob/main/Posts%20_%20Magento%20Admin.gif)
+![nine image Alt text](/Images/nine.gif "productsgrid category post edit")

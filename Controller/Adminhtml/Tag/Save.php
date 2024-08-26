@@ -146,7 +146,7 @@ class Save extends Tag
         if ($data) {
             if (!$this->dataProcessor->validate($data, $validate = 'tag')) {
                 $this->dataPersistor->set('magelearn_item_tag', $data);
-                if (!empty($data['category_id'])) {
+                if (!empty($data['tag_id'])) {
                     return $resultRedirect->setPath(
                         'magelearn_productsgrid/*/edit',
                         [

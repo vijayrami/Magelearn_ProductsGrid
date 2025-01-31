@@ -23,7 +23,7 @@ class ItemPost extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
     public function __construct(
         CollectionFactory $postCollectionFactory
     ) {
-        $this->_postCollectionFactory = $postCollectionFactory;
+        $this->postCollectionFactory = $postCollectionFactory;
     }
 	
     /**
@@ -36,7 +36,7 @@ class ItemPost extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
         if ($this->_options === null) {
 			$result[] = ['value'=>'', 'label'=>__(' ')];
 			
-			$posts = $this->_postCollectionFactory->create();
+			$posts = $this->postCollectionFactory->create();
 			$posts->addFieldToFilter('enabled', '1');
 			if(count($posts)>0){
 			    foreach($posts as $post){
